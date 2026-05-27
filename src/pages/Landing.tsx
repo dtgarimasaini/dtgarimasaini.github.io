@@ -68,9 +68,9 @@ export default function Landing() {
           alt="Yoga at sunrise"
           width={1920}
           height={1280}
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
         <div className="relative max-w-5xl mx-auto px-6 py-24 text-center">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-6">
             <Sparkles className="h-3.5 w-3.5" /> 500 Hr YTTC · 1500+ Teaching Hours
