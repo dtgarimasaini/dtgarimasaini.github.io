@@ -75,10 +75,10 @@ export default function Landing() {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-6">
             <Sparkles className="h-3.5 w-3.5" /> 500 Hr YTTC · 1500+ Teaching Hours
           </span>
-          <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-6 leading-tight">
-            Breathe. Move. <span className="text-primary font-medium">Reconnect.</span>
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-tight drop-shadow-sm">
+            Breathe. Move. <span className="text-primary">Reconnect.</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-medium">
             Transformative yoga retreats and corporate wellness sessions guided by Garima Saini —
             certified yoga instructor and nutritionist.
           </p>
@@ -93,7 +93,7 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm uppercase tracking-widest text-accent font-medium mb-3">What I Offer</p>
-            <h2 className="text-3xl md:text-4xl font-light">Wellness, tailored to you</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold">Wellness, tailored to you</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -128,17 +128,17 @@ export default function Landing() {
           </div>
           <div>
             <p className="text-sm uppercase tracking-widest text-accent font-medium mb-3">About Me</p>
-            <h2 className="text-3xl md:text-4xl font-light mb-6">Hi, I'm Garima Saini</h2>
-            <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6">Hi, I'm Garima Saini</h2>
+            <div className="space-y-4 text-foreground/85 text-base md:text-lg leading-relaxed mb-8 font-medium">
               <p>
                 I am a certified yoga instructor, retreat facilitator and corporate wellness coach
                 dedicated to helping individuals and organisations cultivate balance, resilience and
                 lasting wellbeing. Over the past three years, I have guided more than{" "}
-                <span className="text-foreground font-medium">1,500 hours of teaching</span> across
+                <span className="text-foreground font-bold">1,500 hours of teaching</span> across
                 immersive retreats, studio classes, private sessions and corporate programmes.
               </p>
               <p>
-                My practice is grounded in a <span className="text-foreground font-medium">500-hour
+                My practice is grounded in a <span className="text-foreground font-bold">500-hour
                 Yoga Teacher Training Certification (YTTC)</span> spanning classical Hatha, Vinyasa,
                 pranayama, meditation and yogic philosophy. I design each session to meet students
                 where they are — from first-time beginners discovering breath awareness to seasoned
@@ -146,7 +146,7 @@ export default function Landing() {
               </p>
               <p>
                 Alongside yoga, I work as a freelance nutritionist with a{" "}
-                <span className="text-foreground font-medium">Master's degree in Food Science &
+                <span className="text-foreground font-bold">Master's degree in Food Science &
                 Technology</span>. This unique blend allows me to bridge ancient yogic wisdom with
                 modern, evidence-based nutrition — creating holistic wellness programmes that
                 nourish the body, calm the mind and restore natural rhythm to everyday life.
@@ -185,7 +185,7 @@ export default function Landing() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-sm uppercase tracking-widest text-accent font-medium mb-3">Get in Touch</p>
-            <h2 className="text-3xl md:text-4xl font-light mb-4">Let's begin your wellness journey</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Let's begin your wellness journey</h2>
             <p className="text-muted-foreground">Share a few details and I'll get back to you personally.</p>
           </div>
           <Card className="p-8 md:p-10">
