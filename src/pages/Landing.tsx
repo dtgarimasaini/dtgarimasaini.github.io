@@ -128,12 +128,35 @@ export default function Landing() {
           </div>
           <div>
             <p className="text-sm uppercase tracking-widest text-accent font-medium mb-3">About Me</p>
-            <h2 className="text-3xl md:text-4xl font-light mb-6">Hi, I'm Garima</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              A yoga retreat instructor and corporate wellness guide on a mission to make wellbeing
-              simple, joyful and sustainable. With a Master's in Food Science & Technology, I blend
-              ancient yogic wisdom with modern nutrition science.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-light mb-6">Hi, I'm Garima Saini</h2>
+            <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
+              <p>
+                I am a certified yoga instructor, retreat facilitator and corporate wellness coach
+                dedicated to helping individuals and organisations cultivate balance, resilience and
+                lasting wellbeing. Over the past three years, I have guided more than{" "}
+                <span className="text-foreground font-medium">1,500 hours of teaching</span> across
+                immersive retreats, studio classes, private sessions and corporate programmes.
+              </p>
+              <p>
+                My practice is grounded in a <span className="text-foreground font-medium">500-hour
+                Yoga Teacher Training Certification (YTTC)</span> spanning classical Hatha, Vinyasa,
+                pranayama, meditation and yogic philosophy. I design each session to meet students
+                where they are — from first-time beginners discovering breath awareness to seasoned
+                practitioners refining their alignment and inner stillness.
+              </p>
+              <p>
+                Alongside yoga, I work as a freelance nutritionist with a{" "}
+                <span className="text-foreground font-medium">Master's degree in Food Science &
+                Technology</span>. This unique blend allows me to bridge ancient yogic wisdom with
+                modern, evidence-based nutrition — creating holistic wellness programmes that
+                nourish the body, calm the mind and restore natural rhythm to everyday life.
+              </p>
+              <p>
+                Whether you are seeking a transformative retreat in nature, a thoughtfully crafted
+                corporate wellness initiative for your team, or personalised guidance on your
+                wellness journey — I'd be honoured to walk that path with you.
+              </p>
+            </div>
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="p-4 rounded-xl bg-card border border-border">
                 <Award className="h-5 w-5 text-primary mb-2" />
