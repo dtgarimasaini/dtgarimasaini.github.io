@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-yoga.jpg";
 import portrait from "@/assets/garima-portrait.jpg";
+import logo from "@/assets/garima-wellness-logo.png";
 
 const EMAIL = "dtgarimasaini@gmail.com";
 const WHATSAPP = "919799209036";
@@ -50,7 +51,7 @@ export default function Landing() {
       <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-background/70 border-b border-border">
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 font-semibold text-lg">
-            <Leaf className="h-5 w-5 text-primary" />
+            <img src={logo} alt="Garima Wellness logo" className="h-10 w-10 object-contain" />
             <span>Garima Wellness</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
