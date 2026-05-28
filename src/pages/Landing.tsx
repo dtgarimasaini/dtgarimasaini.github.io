@@ -76,12 +76,14 @@ export default function Landing() {
             <Sparkles className="h-3.5 w-3.5" /> 500 Hr YTTC · 1500+ Teaching Hours
           </span>
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-tight drop-shadow-sm">
-            Breathe. Move. <span className="text-primary">Reconnect.</span>
+            Breathe. Move. <span className="text-foreground">Reconnect.</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-medium">
-            Transformative yoga retreats and corporate wellness sessions guided by Garima Saini —
-            certified yoga instructor and nutritionist.
-          </p>
+          <div className="mx-auto mb-10 max-w-2xl rounded-2xl bg-background/80 backdrop-blur-sm border border-border p-6 shadow-sm">
+            <p className="text-lg md:text-xl text-foreground font-medium">
+              Transformative yoga retreats and corporate wellness sessions guided by Garima Saini —
+              certified yoga instructor and nutritionist.
+            </p>
+          </div>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button size="lg" onClick={() => scrollTo("services")}>Explore Sessions</Button>
             <Button size="lg" variant="outline" onClick={() => scrollTo("contact")}>Get in Touch</Button>
