@@ -86,7 +86,12 @@ export default function Landing() {
       {/* HERO */}
       <section className="relative pt-16 min-h-[92vh] flex items-center">
         <img src={heroImg} alt="Yoga at sunrise" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
+        {/* Light overlay to wash out the image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+        {/* Green glow from left */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/25 via-transparent to-transparent" />
+        {/* Green glow from right */}
+        <div className="absolute inset-0 bg-gradient-to-l from-primary/25 via-transparent to-transparent" />
         <div className="relative max-w-5xl mx-auto px-6 py-24 text-center">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-6">
             <Sparkles className="h-3.5 w-3.5" /> Yoga · Wellness · Nutrition · Mindfulness
