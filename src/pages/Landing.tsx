@@ -33,6 +33,7 @@ import logo from "@/assets/garima-wellness-logo.png";
 const EMAIL = "dtgarimasaini@gmail.com";
 const WHATSAPP = "919799209036";
 const INSTAGRAM = "garima.wellness";
+const WEB3FORMS_KEY = "a25430e7-e809-4bc5-973f-0556d4ad806c";
 
 export default function Landing() {
   const [form, setForm] = useState({
@@ -45,19 +46,61 @@ export default function Landing() {
     goals: "",
     consent: false,
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.firstName.trim() || !form.email.trim() || !form.interest.trim() || !form.consent) {
-      toast.error("Please fill required fields and accept the consent.");
-      return;
-    }
+  const mailtoFallback = () => {
     const subject = encodeURIComponent(`Wellness enquiry from ${form.firstName} ${form.lastName}`);
     const body = encodeURIComponent(
       `Name: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nPhone: ${form.phone}\nInterested In: ${form.interest}\nSession Preference: ${form.preference}\n\nGoals:\n${form.goals}`
     );
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    toast.success("Opening your email app to send the message.");
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.firstName.trim() || !form.email.trim() || !form.interest.trim() || !form.consent) {
+      toast.error("Please fill required fields and accept the consent.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Wellness enquiry from ${form.firstName} ${form.lastName}`.trim(),
+          from_name: `${form.firstName} ${form.lastName}`.trim() || "Garima Wellness enquiry",
+          name: `${form.firstName} ${form.lastName}`.trim(),
+          email: form.email,
+          phone: form.phone,
+          interested_in: form.interest,
+          session_preference: form.preference,
+          goals: form.goals,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success("Thank you! Your message has been sent — Garima will reply within 24 hours.");
+        setForm({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          interest: "",
+          preference: "",
+          goals: "",
+          consent: false,
+        });
+      } else {
+        throw new Error(data.message || "Submission failed");
+      }
+    } catch {
+      toast.error("Couldn't send automatically — opening your email app as a backup.");
+      mailtoFallback();
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const scrollTo = (id: string) => {
@@ -562,8 +605,8 @@ export default function Landing() {
                   understand my details will not be shared with third parties.
                 </label>
               </div>
-              <Button type="submit" size="lg" className="w-full">
-                Send Message & Book Discovery Call →
+              <Button type="submit" size="lg" className="w-full" disabled={submitting}>
+                {submitting ? "Sending…" : "Send Message & Book Discovery Call →"}
               </Button>
               <p className="text-xs text-center text-accent">
                 ✦ Free 20-minute discovery call included with every enquiry
