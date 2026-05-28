@@ -85,7 +85,7 @@ export default function Landing() {
 
       {/* HERO */}
       <section className="relative pt-16 min-h-[92vh] flex items-center">
-        <img src={heroImg} alt="Yoga at sunrise" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={heroImg} alt="Yoga at sunrise" fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
         {/* Light overlay to wash out the image */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
         {/* Green glow from left */}
@@ -149,6 +149,8 @@ export default function Landing() {
             <img
               src={portrait}
               alt="Garima Saini"
+              loading="lazy"
+              decoding="async"
               className="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/5]"
             />
             <div className="absolute -bottom-6 -right-4 md:-right-8 bg-primary text-primary-foreground px-5 py-4 rounded-md shadow-lg text-center">
