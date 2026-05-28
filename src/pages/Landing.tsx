@@ -98,7 +98,7 @@ export default function Landing() {
           </span>
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-tight drop-shadow-sm">
             Your Body Remembers <br />
-            <span className="italic text-primary">What Peace Feels Like.</span>
+            <span className="italic" style={{ color: '#0a2a1a' }}>What Peace Feels Like.</span>
           </h1>
           <div className="mx-auto mb-10 max-w-2xl rounded-2xl bg-background/85 backdrop-blur-sm border border-border p-6 shadow-sm">
             <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">
