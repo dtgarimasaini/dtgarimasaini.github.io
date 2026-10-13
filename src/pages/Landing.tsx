@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "@/styles/wellness-responsive.css";
+import { Link } from "react-router-dom";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -128,6 +130,7 @@ export default function Landing() {
             <button onClick={() => scrollTo("services")} className="hover:text-primary transition">Services</button>
             <button onClick={() => scrollTo("approach")} className="hover:text-primary transition">Approach</button>
             <button onClick={() => scrollTo("stories")} className="hover:text-primary transition">Stories</button>
+            <Link to="/blog" className="hover:text-primary transition">Blog</Link>
           </div>
           <div className="flex shrink-0 items-center gap-1">
             <Button size="sm" className="h-11 md:h-9" onClick={() => scrollTo("contact")}>Book a Call</Button>
@@ -149,6 +152,7 @@ export default function Landing() {
                   ].map(({ id, label }) => (
                     <Button key={id} variant="ghost" className="h-12 justify-start" onClick={() => scrollTo(id)}>{label}</Button>
                   ))}
+                  <Button asChild variant="ghost" className="h-12 justify-start"><Link to="/blog">Blog</Link></Button>
                 </nav>
               </SheetContent>
             </Sheet>
@@ -682,7 +686,7 @@ export default function Landing() {
             <h5 className="text-xs uppercase tracking-widest text-background mb-4 font-semibold">Connect</h5>
             <ul className="space-y-2 text-sm">
               <li><a href={`https://instagram.com/${INSTAGRAM}`} target="_blank" rel="noopener noreferrer" className="hover:text-background transition inline-flex items-center gap-2"><Instagram className="h-3.5 w-3.5" /> Instagram</a></li>
-              <li><a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="hover:text-background transition inline-flex items-center gap-2"><MessageCircle className="h-3.5 w-3.5" /> WhatsApp</a></li>
+              <li><a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="hover:text-background transition inline-flex items-center gap-2"><WhatsAppIcon className="h-3.5 w-3.5" /> WhatsApp</a></li>
               <li><a href={`mailto:${EMAIL}`} className="hover:text-background transition inline-flex items-center gap-2"><Mail className="h-3.5 w-3.5" /> Email</a></li>
             </ul>
           </div>
@@ -701,7 +705,7 @@ export default function Landing() {
         aria-label="Chat on WhatsApp"
         className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-[#25D366] text-white shadow-xl flex items-center justify-center hover:scale-110 transition-transform"
       >
-        <MessageCircle className="h-7 w-7" />
+        <WhatsAppIcon className="h-8 w-8" />
       </a>
     </div>
   );
