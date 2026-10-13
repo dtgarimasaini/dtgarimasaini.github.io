@@ -8,7 +8,19 @@
   }
 
   .wellness-page .wellness-hero {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
     min-height: 0;
+  }
+
+  /* On phones the photo becomes a banner above the words so the person in
+     the picture never sits behind the headline, card or buttons. */
+  .wellness-page .wellness-hero > img {
+    position: static !important;
+    width: 100% !important;
+    height: 15rem !important;
+    object-position: 50% 70%;
   }
 
   .wellness-hero h1 {
