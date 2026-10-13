@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { toast } from "sonner";
 import {
   Building2,
@@ -25,6 +26,7 @@ import {
   Users,
   Leaf,
   Heart,
+  Menu,
 } from "lucide-react";
 import heroImg from "@/assets/hero-yoga.jpg";
 import portrait from "@/assets/garima-portrait.jpg";
@@ -36,6 +38,7 @@ const INSTAGRAM = "garima.wellness";
 const WEB3FORMS_KEY = "a25430e7-e809-4bc5-973f-0556d4ad806c";
 
 export default function Landing() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -104,16 +107,19 @@ export default function Landing() {
   };
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+    document.getElementById(id)?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="wellness-page min-h-screen bg-background text-foreground">
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-background/85 border-b border-border">
-        <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-semibold text-lg">
-            <img src={logo} alt="Garima Wellness logo" className="h-10 w-10 object-contain" />
+        <nav className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-2">
+          <div className="flex min-w-0 items-center gap-2 font-semibold text-base md:text-lg">
+            <img src={logo} alt="Garima Wellness logo" className="h-9 w-9 md:h-10 md:w-10 shrink-0 object-contain" />
             <span>Garima Wellness</span>
           </div>
           <div className="hidden md:flex items-center gap-7 text-xs uppercase tracking-widest text-muted-foreground">
@@ -122,12 +128,35 @@ export default function Landing() {
             <button onClick={() => scrollTo("approach")} className="hover:text-primary transition">Approach</button>
             <button onClick={() => scrollTo("stories")} className="hover:text-primary transition">Stories</button>
           </div>
-          <Button size="sm" onClick={() => scrollTo("contact")}>Book a Call</Button>
+          <div className="flex shrink-0 items-center gap-1">
+            <Button size="sm" className="h-11 md:h-9" onClick={() => scrollTo("contact")}>Book a Call</Button>
+            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden h-11 w-11" aria-label="Open navigation">
+                  <Menu />
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="w-[min(85vw,22rem)]">
+                <SheetTitle>Garima Wellness</SheetTitle>
+                <nav aria-label="Mobile navigation" className="mt-8 flex flex-col gap-2">
+                  {[
+                    { id: "about", label: "About" },
+                    { id: "services", label: "Services" },
+                    { id: "approach", label: "Approach" },
+                    { id: "stories", label: "Stories" },
+                    { id: "contact", label: "Book a Call" },
+                  ].map(({ id, label }) => (
+                    <Button key={id} variant="ghost" className="h-12 justify-start" onClick={() => scrollTo(id)}>{label}</Button>
+                  ))}
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </nav>
       </header>
 
       {/* HERO */}
-      <section className="relative pt-16 min-h-[92vh] flex items-center">
+      <section className="wellness-hero relative pt-16 min-h-[92vh] flex items-center">
         <img src={heroImg} alt="Yoga at sunrise" fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
         {/* Light overlay to wash out the image */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
@@ -135,12 +164,12 @@ export default function Landing() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/25 via-transparent to-transparent" />
         {/* Green glow from right */}
         <div className="absolute inset-0 bg-gradient-to-l from-primary/25 via-transparent to-transparent" />
-        <div className="relative max-w-5xl mx-auto px-6 py-24 text-center">
+        <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-24 text-center">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium mb-6">
             <Sparkles className="h-3.5 w-3.5" /> Yoga · Wellness · Nutrition · Mindfulness
           </span>
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-tight drop-shadow-sm">
-            Your Body Remembers <br />
+            Your Body Remembers <br className="hidden md:block" />
             <span className="italic" style={{ color: '#0a2a1a' }}>What Peace Feels Like.</span>
           </h1>
           <div className="mx-auto mb-10 max-w-2xl rounded-2xl bg-background/85 backdrop-blur-sm border border-border p-6 shadow-sm">
@@ -531,7 +560,7 @@ export default function Landing() {
             </div>
           </div>
 
-          <Card className="p-8 md:p-10">
+          <Card className="p-5 sm:p-8 md:p-10 min-w-0">
             <h3 className="text-2xl font-semibold mb-2 text-primary">Send a Message</h3>
             <p className="text-sm text-muted-foreground mb-6">
               Fill in your details and Garima will personally get back to you within 24 hours.
@@ -605,7 +634,7 @@ export default function Landing() {
                   understand my details will not be shared with third parties.
                 </label>
               </div>
-              <Button type="submit" size="lg" className="w-full" disabled={submitting}>
+              <Button type="submit" size="lg" className="w-full h-auto min-h-11 whitespace-normal px-3 py-3 leading-snug" disabled={submitting}>
                 {submitting ? "Sending…" : "Send Message & Book Discovery Call →"}
               </Button>
               <p className="text-xs text-center text-accent">
