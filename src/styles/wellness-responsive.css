@@ -16,8 +16,9 @@
      picture stays full-bleed behind them, framed a little lower so the person
      is not cropped and the light wash keeps the words readable. */
   .wellness-page .wellness-hero > img {
-    object-position: 50% 62%;
+    object-position: 71% 50%;
   }
+
 
 
   .wellness-hero h1 {
