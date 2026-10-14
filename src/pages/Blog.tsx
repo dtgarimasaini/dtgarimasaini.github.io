@@ -66,7 +66,31 @@ export function BlogPostPage() {
             <p className="text-xs uppercase tracking-widest text-primary font-semibold">{post.category} · {fmt(post.date)}</p>
             <h1 className="text-3xl md:text-5xl font-semibold mt-3 leading-tight">{post.title}</h1>
             <div className="mt-8 space-y-5 text-lg leading-relaxed">
-              {post.content.map((para, i) => <p key={i}>{para}</p>)}
+              {post.content.map((block, i) => {
+                if (typeof block === "string") return <p key={i}>{block}</p>;
+                if (block.type === "heading") {
+                  return (
+                    <h2 key={i} className="text-xl md:text-2xl font-semibold pt-4">
+                      {block.text}
+                    </h2>
+                  );
+                }
+                return (
+                  <figure key={i} className="my-6">
+                    <img
+                      src={block.src}
+                      alt={block.alt}
+                      loading="lazy"
+                      width={1024}
+                      height={1024}
+                      className="w-full max-h-96 object-cover rounded-2xl border border-border shadow-sm"
+                    />
+                    {block.caption && (
+                      <figcaption className="mt-2 text-sm text-muted-foreground text-center">{block.caption}</figcaption>
+                    )}
+                  </figure>
+                );
+              })}
             </div>
             <Card className="mt-12 p-6 bg-secondary/40">
               <p className="font-semibold">Want personal guidance?</p>
