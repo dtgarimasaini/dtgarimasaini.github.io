@@ -8,20 +8,17 @@
   }
 
   .wellness-page .wellness-hero {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    min-height: 0;
+    min-height: 88vh;
+    align-items: center;
   }
 
-  /* On phones the photo becomes a banner above the words so the person in
-     the picture never sits behind the headline, card or buttons. */
+  /* On phones the words sit over the photo exactly like the laptop view: the
+     picture stays full-bleed behind them, framed a little lower so the person
+     is not cropped and the light wash keeps the words readable. */
   .wellness-page .wellness-hero > img {
-    position: static !important;
-    width: 100% !important;
-    height: 15rem !important;
-    object-position: 50% 70%;
+    object-position: 50% 62%;
   }
+
 
   .wellness-hero h1 {
     font-size: 2.25rem;
